@@ -3,7 +3,7 @@
 The demo is build with [Docker Compose](https://docs.docker.com/compose/). It starts 3 Docker containers with the following components:
 
 - [Modified Petclinic application](https://github.com/antonarhipov/spring-petclinic) deployed to Tomcat, started with XRebel
-- [Supplements application](https://github.com/antonarhipov/supplements) deployed to Tomcat, started with XRebel
+- [Supplements application](https://github.com/zeroturnaround/xrebel-demo-supplements) deployed to Tomcat, started with XRebel
 - MongoDB instance
 
 See [docker-compose.yml](docker-compose.yml) for the components setup description. 
