@@ -1,0 +1,31 @@
+petclinic:
+  image: tomcat
+  ports:
+    - "8000:8080"
+  links:
+    - supplements
+    - db
+  volumes:
+    - ./xrebel.jar:/xrebel.jar
+    - ~/.xrebel/xrebel.lic:/root/.xrebel/xrebel.lic
+    - ./petclinic.war:/usr/local/tomcat/webapps/petclinic.war
+  environment:
+    - "JAVA_OPTS=-javaagent:/xrebel.jar -Dsupplements.host=supplements -Dmongo.host=db"
+
+
+supplements:
+  image: tomcat
+  ports:
+    - "8888:8080"
+  links:
+    - db
+  volumes:
+    - ./xrebel.jar:/xrebel.jar
+    - ~/.xrebel/xrebel.lic:/root/.xrebel/xrebel.lic
+    - ./supplements.war:/usr/local/tomcat/webapps/supplements.war
+  environment:
+    - "JAVA_OPTS=-javaagent:/xrebel.jar -Dmongo.host=db"
+
+db:
+  image: mongo
+  command: -smallfiles -nojournal
