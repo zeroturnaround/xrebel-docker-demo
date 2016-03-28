@@ -1,5 +1,5 @@
 petclinic:
-  image: tomcat
+  image: tomcat:8.0.32-jre7
   ports:
     - "8000:8080"
   links:
@@ -14,7 +14,7 @@ petclinic:
 
 
 supplements:
-  image: tomcat
+  image: tomcat:8.0.32-jre7
   ports:
     - "8888:8080"
   links:
@@ -27,5 +27,5 @@ supplements:
     - "JAVA_OPTS=-javaagent:/xrebel.jar -Dmongo.host=db"
 
 db:
-  image: mongo
+  image: mongo:3.2.4
   command: -smallfiles -nojournal
