@@ -54,10 +54,8 @@ As suggested, run the eval command to configure your shell:
 $ eval "$(docker-machine env dev)"
 ```
 
-- Pull this repository and start with Docker Compose
+- Start Docker Compose
 ```
-git clone https://bitbucket.org/zeroturnaround/xrebel-demo1
-cd xrebel-demo1
 docker-compose up
 ```
 
